@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+            crossorigin="anonymous"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/create">Add Student</a></li>
+                        <li><a class="dropdown-item" href="/details">List Of Students</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled">Disabled</a>
+                </li>
+            </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <hr>
+<!--    <div class="row">-->
+        <div class="col pt-5">
+            <form  th:method="PATCH" th:action="@{/{id}(id=${oldInfo.getId()})}" th:object="${oldInfo}">
+
+                <input class="form-control" placeholder="name..." type="text" th:field="*{name}">
+                <hr>
+                <input class="form-control" placeholder="phone number..." type="text" th:field="*{phone}">
+                <hr>
+                <input class="form-control" placeholder="email..." type="text" th:field="*{email}">
+                <hr>
+                <input class="form-control" placeholder="region..." type="text" th:field="*{region}">
+                <hr>
+                <input class="form-control" placeholder="district..." type="text" th:field="*{district}">
+                <hr>
+                <input type="submit" class="btn btn-primary" value="submit">
+
+                <a href="/details" class="btn btn-success">List Of Students</a>
+            </form>
+        <!--</div>
+        <div class="col  pt-5" >
+         &lt;!&ndash;   <table>
+                <tr th:if="${st==null}">
+                    <td>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSud2jlw7LvaqPBKrpyoGXImeMb7PRdh0S2Yg&usqp=CAU"
+                             width="450px">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="p-3 mb-2 bg-primary text-white"><p th:text="'name: ' +${st.name}">xxxxxx</p></div>
+                        <div class="p-3 mb-2 bg-secondary text-white"><p th:text="'phone: '+${st.phone}">xxxxxx</p></div>
+                        <div class="p-3 mb-2 bg-success text-white"><p th:text="'email: ' +${st.email}">xxxxxx</p></div>
+
+                        &lt;!&ndash;<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="toast-body">
+
+                                <div class="mt-2 pt-2 border-top">
+                                    <button type="button" class="btn btn-primary btn-sm">Take action</button>
+                                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast">Close</button>
+                                </div>
+                            </div>
+                        </div>&ndash;&gt;
+                    </td>
+                </tr>
+            </table>
+&ndash;&gt;
+
+        </div>-->
+
+    </div>
+</div>
+
+</body>
+</html>
